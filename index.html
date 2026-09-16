@@ -2,44 +2,27 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Match Praia — deslize e ache seu imóvel no litoral</title>
-<meta name="description" content="Matcher estilo swipe para imóveis no litoral paulista. Satélite da rede praia.digital">
-<style>
-:root{--sea:#0077b6;--sand:#ffd166;--dark:#023047;--foam:#caf0f8}
-*{box-sizing:border-box;margin:0;font-family:system-ui,sans-serif}
-body{background:linear-gradient(160deg,#023047,#0077b6);min-height:100vh;color:#fff;display:flex;flex-direction:column;align-items:center}
-header{padding:16px;text-align:center}
-nav a{color:#ffd166;margin:0 8px;text-decoration:none;font-size:14px}
-.card{background:#fff;color:#023047;width:min(360px,90vw);border-radius:20px;padding:24px;margin:24px auto;box-shadow:0 20px 40px rgba(0,0,0,.35);transition:transform .3s,opacity .3s}
-.card h2{font-size:22px}.price{color:#0077b6;font-size:26px;font-weight:800;margin:8px 0}
-.tag{display:inline-block;background:#caf0f8;border-radius:99px;padding:4px 12px;margin:3px;font-size:12px}
-.emoji{font-size:64px;text-align:center;display:block;margin-bottom:8px}
-.btns{display:flex;gap:16px;justify-content:center;margin:16px 0 40px}
-.btns button{font-size:30px;width:72px;height:72px;border-radius:50%;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3)}
-.nope{background:#ff5d8f}.like{background:#06d6a0}
-.score{margin-top:12px;font-size:14px;color:#555}
-footer{margin-top:auto;padding:16px;font-size:13px;text-align:center;color:#caf0f8}
-footer a{color:#ffd166}
-</style></head>
+<title>Match Praia — Encontre seu Imóvel Ideal no Litoral</title>
+<meta name="description" content="Swipe-style: descubra o imóvel perfeito no litoral paulista respondendo 6 perguntas rápidas.">
+<style>body{font-family:system-ui;margin:0;background:#f0f9ff;color:#0c4a6e}header{background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff;padding:2rem 1rem;text-align:center}header a{color:#bae6fd}main{max-width:640px;margin:1.5rem auto;padding:0 1rem}.card{background:#fff;border-radius:16px;padding:1.5rem;margin:1rem 0;box-shadow:0 4px 14px rgba(2,132,199,.2);text-align:center}.opt{display:block;width:100%;margin:.5rem 0;padding:.8rem;border-radius:12px;border:2px solid #7dd3fc;background:#fff;font-size:1rem;cursor:pointer}.opt:hover{background:#e0f2fe}.res{font-size:1.1rem}footer{text-align:center;font-size:.85rem;padding:2rem 1rem;color:#0369a1}.net{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.8rem}.net a{background:#e0f2fe;color:#075985;padding:.3rem .6rem;border-radius:999px;text-decoration:none;font-size:.8rem}</style>
+</head>
 <body>
-<header><h1>🏖️ Match Praia</h1><p>Dê match com o imóvel dos seus sonhos no litoral</p>
-<nav><a href="https://praia.digital">Praia Digital</a><a href="https://praia.digital/radar-precos">Radar de Preços</a><a href="https://praia.digital/plano-litoral">Plano Litoral</a><a href="https://praia.digital/apps">Todos os apps</a></nav></header>
-<div class="card" id="card"></div>
-<div class="btns"><button class="nope" onclick="vote(false)">✖</button><button class="like" onclick="vote(true)">❤</button></div>
-<footer>Rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praia.digital/marea">Maréa</a> · <a href="https://praia.digital/concierge-ia">Concierge IA</a> · <a href="https://praia.digital/tour-360">Tour 360</a></footer>
+<header><h1>💙 Match Praia</h1><p>6 perguntas. 1 imóvel perfeito. O Tinder dos imóveis de praia.</p><a href="https://praia.digital">← praia.digital</a> · <a href="https://praia.digital/apps">Hub de apps</a></header>
+<main><div class="card" id="app"></div>
+<div class="card"><h3>Próximos passos</h3><p style="text-align:left">🏖️ <a href="https://praia.digital/praiascore">Avalie o PraiaScore do imóvel</a><br>💼 <a href="https://praia.digital/plano-litoral">Monte seu Plano Litoral</a><br>🏘️ <a href="https://praia.digital/vizinho-digital">Compare bairros no Vizinho Digital</a></p></div>
+</main>
+<footer><b>Rede Praia Digital</b><div class="net"><a href="https://praia.digital/apps">Hub</a><a href="https://praia.digital/ondata">Ondata</a><a href="https://praia.digital/temporada-pro">Temporada Pro</a><a href="https://praia.digital/radar-precos">Radar de Preços</a><a href="https://praia.digital/marea">Maréa</a><a href="https://praia.digital/mapa-investidor">Mapa Investidor</a><a href="https://praia.digital/tour-360">Tour 360</a><a href="https://praia.digital/concierge-ia">Concierge IA</a></div><p>© 2026 Praia Digital</p></footer>
 <script>
-const imoveis=[
-{n:'Apê frente-mar Gonzaga',c:'Santos',p:890000,m:72,t:['vista mar','2 vagas','varanda'],e:'🌊'},
-{n:'Casa com piscina Riviera',c:'São Sebastião',p:1450000,m:180,t:['piscina','4 suítes','condomínio'],e:'🏡'},
-{n:'Studio pé na areia',c:'Guarujá',p:420000,m:38,t:['mobiliado','temporada','1 vaga'],e:'🏄'},
-{n:'Cobertura Boqueirão',c:'Santos',p:1650000,m:140,t:['terraço','3 suítes','vista mar'],e:'🌅'},
-{n:'Apê Maresias surf vibe',c:'São Sebastião',p:680000,m:64,t:['perto da praia','2 quartos'],e:'🏝️'},
-{n:'Kitnet investidor',c:'Praia Grande',p:210000,m:28,t:['alto ROI','mobiliada'],e:'💰'},
-{n:'Casa de vila Caraguá',c:'Caraguatatuba',p:520000,m:110,t:['quintal','3 quartos'],e:'🌺'},
-{n:'Loft moderno Astúrias',c:'Guarujá',p:750000,m:85,t:['design','vista parcial'],e:'🌆'}];
-let i=0,likes=0;
-function render(){const x=imoveis[i%imoveis.length];
-document.getElementById('card').innerHTML=`<span class="emoji">${x.e}</span><h2>${x.n}</h2><p>📍 ${x.c}</p><div class="price">R$ ${x.p.toLocaleString('pt-BR')}</div><p>${x.m} m² · R$ ${Math.round(x.p/x.m).toLocaleString('pt-BR')}/m²</p><div>${x.t.map(t=>`<span class="tag">${t}</span>`).join('')}</div><p class="score">❤ ${likes} matches até agora</p>`;}
-function vote(l){const c=document.getElementById('card');c.style.transform=l?'translateX(300px) rotate(15deg)':'translateX(-300px) rotate(-15deg)';c.style.opacity=0;if(l)likes++;i++;setTimeout(()=>{c.style.transition='none';c.style.transform='none';c.style.opacity=1;c.style.transition='transform .3s,opacity .3s';render();},300);}
-render();
-</script></body></html>
+const Q=[{t:'Qual seu objetivo?',o:['Morar','Investir / temporada','Veraneio']},{t:'Orçamento total?',o:['Até R$ 350 mil','R$ 350–700 mil','R$ 700 mil – 1,5 mi','Acima de R$ 1,5 mi']},{t:'O que não abre mão?',o:['Vista pro mar','Perto de serviços','Condomínio com lazer','Sossego total']},{t:'Quantos quartos?',o:['1–2','3','4+']},{t:'Perfil de praia?',o:['Badalada','Família','Surf e natureza']},{t:'Quando quer fechar?',o:['Agora','Em 6 meses','Em 1–2 anos']}];
+let i=0,a=[];
+const R={'Investir / temporada':['Juquehy (S. Sebastião)','Alta demanda de temporada, ticket médio R$ 900/dia. Veja o <a href="https://praia.digital/temporada-pro">Temporada Pro</a>.'],'Morar':['Gonzaga (Santos)','Infraestrutura completa, mercado e escolas a pé. Compare no <a href="https://praia.digital/vizinho-digital">Vizinho Digital</a>.'],'Veraneio':['Riviera de São Lourenço (Bertioga)','Lazer completo e praia limpa. Confira a <a href="https://praia.digital/marea">Maréa</a> antes de ir.']};
+function show(){
+ const el=document.getElementById('app');
+ if(i<Q.length){el.innerHTML='<h3>'+(i+1)+'/'+Q.length+' — '+Q[i].t+'</h3>'+Q[i].o.map(o=>'<button class="opt" onclick="pick(\''+o.replace(/'/g,"")+'\')">'+o+'</button>').join('');}
+ else{const r=R[a[0]]||R['Veraneio'];el.innerHTML='<h2>💘 Seu match:</h2><p class="res"><b>'+r[0]+'</b></p><p>'+r[1]+'</p><p>Orçamento: '+a[1]+' · Perfil: '+a[4]+'</p><button class="opt" onclick="i=0;a=[];show()">Refazer ↺</button>';}
+}
+function pick(o){a.push(o);i++;show();}
+show();
+</script>
+</body>
+</html>
