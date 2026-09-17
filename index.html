@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Match Praia — Encontre seu imóvel ideal no litoral | Praia Digital</title>
-<meta name="description" content="Responda 6 perguntas e descubra qual cidade do litoral paulista combina com seu perfil e orçamento.">
-<link rel="canonical" href="https://praia.digital/match-praia/">
-<style>:root{--azul:#0a2540;--mar:#0e7490;--areia:#f8f5ef}*{margin:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:var(--areia);color:#1e293b}header{background:linear-gradient(135deg,var(--azul),var(--mar));color:#fff;padding:2.5rem 1.5rem;text-align:center}.badge{display:inline-block;background:rgba(255,255,255,.15);padding:.25rem .8rem;border-radius:999px;font-size:.8rem;margin-bottom:.8rem}main{max-width:640px;margin:2rem auto;padding:0 1.25rem}.card{background:#fff;border-radius:1rem;padding:1.75rem;box-shadow:0 4px 24px rgba(10,37,64,.08);margin-bottom:1.5rem}.opt{display:block;width:100%;text-align:left;background:var(--areia);border:2px solid #e2e8f0;border-radius:.7rem;padding:1rem;margin:.5rem 0;font-size:1rem;cursor:pointer}.opt:hover{border-color:var(--mar);background:#ecfeff}.prog{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:1rem}.prog div{height:100%;background:var(--mar);transition:width .3s}.resultado{text-align:center}.cidade{font-size:2rem;font-weight:800;color:var(--azul);margin:.5rem 0}.match{display:inline-block;background:#dcfce7;color:#166534;padding:.3rem 1rem;border-radius:999px;font-weight:700}.rede{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}.rede a{background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;padding:.8rem;text-decoration:none;color:var(--azul);font-weight:600;font-size:.9rem}footer{text-align:center;padding:2rem;color:#64748b;font-size:.85rem}footer a{color:var(--mar)}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Praia | Praia Digital</title>
+<meta name="description" content="Compare duas cidades do litoral lado a lado: preço, demanda, valorização e renda. Satélite de praia.digital.">
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}
+.hero{background:linear-gradient(135deg,#155e75,#06b6d4);color:#fff;padding:50px 20px;text-align:center}
+.container{max-width:1000px;margin:0 auto;padding:30px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cta{display:inline-block;background:#fff;color:#0c4a6e;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px}
+button{background:#0284c7;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin:6px 0;font-family:inherit}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
+.bar{height:14px;border-radius:7px;background:linear-gradient(90deg,#0ea5e9,#0369a1)}
+</style>
 </head>
 <body>
-<header><span class="badge">🛰️ App satélite de <a href="https://praia.digital" style="color:#fff">praia.digital</a></span><h1>💘 Match Praia</h1><p>6 perguntas para descobrir sua cidade perfeita no litoral</p></header>
-<main>
-<div class="card" id="quiz"><div class="prog"><div id="bar" style="width:0%"></div></div><h3 id="q"></h3><div id="opts"></div></div>
-<div class="card resultado" id="res" style="display:none"><p>Seu match é...</p><div class="cidade" id="cid"></div><span class="match" id="pct"></span><p id="porque" style="margin-top:1rem;color:#475569"></p>
-<button class="opt" style="text-align:center;background:var(--mar);color:#fff;border:0" onclick="location.reload()">🔄 Refazer o quiz</button>
-<p style="margin-top:1rem;font-size:.9rem">Veja preços no <a href="https://praia.digital/radar-precos">Radar de Preços</a> e compare bairros no <a href="https://praia.digital/bairro-score">Bairro Score</a>.</p></div>
-<h2 style="margin:1.5rem 0 .8rem">🌐 Rede Praia Digital</h2>
-<div class="rede">
-<a href="https://praia.digital">🏠 Portal Praia Digital</a>
-<a href="https://praia.digital/plano-litoral">📋 Plano Litoral</a>
-<a href="https://praia.digital/mapa-inteligente">🗺️ Mapa Inteligente</a>
-<a href="https://praia.digital/praiascore">🏆 PraiaScore</a>
-<a href="https://praia.digital/apps">🛰️ Todos os apps</a>
+<nav style="background:#0c4a6e;padding:12px 20px;display:flex;gap:14px;flex-wrap:wrap;font-family:system-ui,sans-serif">
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praia.digital/">🌊 Praia Digital</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/apps/">Hub</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/hermes-agents/">Hermes</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/area-anfitriao/">Anfitrião</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-roi/">ROI</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-credito/">Crédito</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/guia-litoral/">Guia</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/calculadoras/">Calculadoras</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/radar-precos/">Radar</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/mapa-investidor/">Mapa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/concierge-ia/">Concierge</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/checklist-anfitriao/">Checklist</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/termometro-mercado/">Termômetro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/alerta-ofertas/">Ofertas</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/gerador-anuncio/">Anúncios</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/quiz-praia-ideal/">Quiz</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/precificador-temporada/">Precificador</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/tour-360/">Tour 360</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/fluxo-caixa/">Caixa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/decor-praia/">Decor</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/open-house/">Open House</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/score-bairro/">Score Bairro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/match-praia/">Match Praia</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/temporada-pro/">Temporada Pro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/marea/">Maréa</a>
+</nav>
+<div class="hero"><h1>⚔️ Match Praia</h1><p>Duelo de cidades do litoral: escolha duas e veja quem vence em cada critério.</p></div>
+<div class="container">
+<div class="card"><div class="grid">
+<div><label><strong>Cidade A</strong></label><select id="a" onchange="render()"><option>Guarujá</option><option>Santos</option><option selected>Bertioga</option><option>Praia Grande</option><option>Mongaguá</option><option>Peruíbe</option></select></div>
+<div><label><strong>Cidade B</strong></label><select id="b" onchange="render()"><option>Guarujá</option><option>Santos</option><option>Bertioga</option><option selected>Praia Grande</option><option>Mongaguá</option><option>Peruíbe</option></select></div>
+</div></div>
+<div id="duelo"></div>
+<div class="card"><h3>💡 Definiu a cidade?</h3><p>Veja o score completo no <a href="https://praiadigital.github.io/mapa-investidor/">Mapa do Investidor</a> e a demanda mensal no <a href="https://praiadigital.github.io/termometro-mercado/">Termômetro</a>.</p></div>
 </div>
-</main>
-<footer>Feito com 🌊 pela rede <a href="https://praia.digital">Praia Digital</a> · <a href="https://github.com/praiadigital/match-praia">código aberto no GitHub</a></footer>
 <script>
-const Q=[
-['Qual seu orçamento total?',[['Até R$ 300 mil',1],['R$ 300–600 mil',2],['R$ 600 mil–1 mi',3],['Acima de R$ 1 mi',4]]],
-['O que você valoriza mais?',[['Praia paradisíaca',1],['Vida urbana e serviços',2],['Surf e natureza',3],['Exclusividade',4]]],
-['Qual o objetivo?',[['Morar',1],['Temporada + renda',2],['Investimento',3],['Fins de semana',4]]],
-['Agito ou sossego?',[['Sossego total',1],['Equilíbrio',2],['Agito moderado',3],['Máximo agito',4]]],
-['Distância de SP ideal?',[['Até 1h30',1],['Até 2h30',2],['Até 3h30',3],['Não importa',4]]],
-['Estrutura desejada?',[['Básica, pé na areia',1],['Condomínio fechado',2],['Prédio com lazer',3],['Luxo total',4]]]];
-const C={1:['Mongaguá / Itanhaém','Entrada acessível, praia tranquila e potencial de valorização de longo prazo.'],2:['Guarujá / Caraguatatuba','Melhor equilíbrio entre preço, serviços e demanda de temporada o ano todo.'],3:['Ubatuba / São Sebastião','Surf, natureza exuberante e forte apelo turístico — ótimo para renda de temporada.'],4:['Riviera de São Lourenço','O endereço premium do litoral: condomínios de luxo, segurança e valorização recorde.']};
-let i=0,pts=0;
-function show(){
-if(i>=Q.length){const k=Math.max(1,Math.min(4,Math.round(pts/Q.length)));
-quiz.style.display='none';res.style.display='block';
-cid.textContent=C[k][0];pct.textContent=`${88+Math.round(Math.random()*8)}% de match`;
-porque.textContent=C[k][1];return}
-q.textContent=Q[i][0];
-opts.innerHTML=Q[i][1].map(o=>`<button class="opt" onclick="pick(${o[1]})">${o[0]}</button>`).join('');
-bar.style.width=(i/Q.length*100)+'%';
-}
-function pick(v){pts+=v;i++;show()}
-show();
+const D={
+"Guarujá":{preco:12500,val:8.4,renda:8,liq:9},
+"Santos":{preco:11800,val:7.1,renda:7,liq:9},
+"Bertioga":{preco:9200,val:11.3,renda:9,liq:7},
+"Praia Grande":{preco:7400,val:9.6,renda:8,liq:8},
+"Mongaguá":{preco:5200,val:6.2,renda:6,liq:5},
+"Peruíbe":{preco:4900,val:10.2,renda:6,liq:4}};
+const crit=[["Preço/m² (menor vence)","preco",-1,"R$"],["Valorização 12m","val",1,"%"],["Renda de temporada","renda",1,"/10"],["Liquidez","liq",1,"/10"]];
+function render(){
+const A=document.getElementById('a').value,B=document.getElementById('b').value;
+let pa=0,pb=0;
+const rows=crit.map(([nome,k,dir,un])=>{
+const va=D[A][k],vb=D[B][k];
+const winA=dir<0?va<vb:va>vb; if(va!==vb){winA?pa++:pb++;}
+const fa=dir<0&&un==="R$"?va.toLocaleString('pt-BR'):va;
+const fb=dir<0&&un==="R$"?vb.toLocaleString('pt-BR'):vb;
+return `<div class="card" style="display:flex;gap:12px;align-items:center;text-align:center"><div style="flex:1;padding:8px;border-radius:8px;${winA?'background:#dcfce7;font-weight:700':''}">${fa}${un==='R$'?'':un}</div><div style="min-width:140px;color:#64748b;font-size:.85em">${nome}</div><div style="flex:1;padding:8px;border-radius:8px;${!winA&&va!==vb?'background:#dcfce7;font-weight:700':''}">${fb}${un==='R$'?'':un}</div></div>`;}).join('');
+document.getElementById('duelo').innerHTML=`<div class="card" style="text-align:center;font-size:1.3em;font-weight:800">${A} vs ${B}</div>`+rows+`<div class="card" style="text-align:center;font-size:1.6em;font-weight:800;color:#0369a1">🏆 ${pa===pb?'Empate técnico!':(pa>pb?A:B)+' vence '+Math.max(pa,pb)+'×'+Math.min(pa,pb)}</div>`;}
+render();
 </script>
-</body></html>
+<footer>© Praia Digital — 2026 — Satélite da rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praiadigital.github.io/apps/">Ver todos os apps</a></footer>
+</body>
+</html>
