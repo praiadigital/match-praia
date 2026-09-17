@@ -1,3 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Match Praia — encontre seu imóvel ideal no swipe | Praia Digital</title><meta name="description" content="Estilo Tinder: responda 6 perguntas e descubra qual cidade do litoral combina com seu perfil."><link rel="canonical" href="https://praia.digital/match-praia/"><style>body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}.hero{background:linear-gradient(135deg,#0c4a6e,#0ea5e9);color:#fff;padding:60px 20px;text-align:center}.container{max-width:640px;margin:auto;padding:30px 20px}.card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px #0002;text-align:center}button{display:block;width:100%;margin:10px 0;padding:16px;border:2px solid #0ea5e9;background:#fff;color:#0c4a6e;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer}button:hover{background:#0ea5e9;color:#fff}.res{font-size:1.4rem}a.app{color:#0c4a6e;font-weight:600}footer{text-align:center;padding:24px;color:#64748b}.prog{color:#94a3b8;font-size:.85rem}</style></head><body><header class="hero"><h1>💘 Match Praia</h1><p>6 perguntas. 1 cidade perfeita para você no litoral paulista.</p></header><main class="container"><div class="card" id="quiz"></div><div class="card"><strong>Encontrou sua cidade?</strong><br>🏠 <a class="app" href="https://praia.digital/avaliador-imoveis/">Avaliador de Imóveis</a> — veja o valor por m² lá<br>🏖️ <a class="app" href="https://praia.digital/bairro-score/">Bairro Score</a> — compare bairros da cidade<br>🗺️ <a class="app" href="https://praia.digital/mapa-inteligente/">Mapa Inteligente</a> — explore no mapa</div></main><footer><a class="app" href="https://praia.digital/apps/">🌐 Apps Praia Digital</a> · <a class="app" href="https://praia.digital/">praia.digital</a></footer><script>var perg=[['O que você mais valoriza?',['Praia paradisíaca',0],['Vida urbana e serviços',1],['Custo-benefício',2]],['Seu orçamento por m²?',['Até R$ 6 mil',2],['R$ 6–10 mil',1],['Acima de R$ 10 mil',0]],['Uso principal?',['Temporada/fins de semana',0],['Moradia permanente',1],['Investimento',2]],['Agito ou sossego?',['Sossego total',0],['Equilíbrio',1],['Agito e nightlife',2]],['Distância de SP importa?',['Quanto mais perto melhor',1],['Até 2h30',2],['Não importa',0]],['Surf ou mar calmo?',['Surf e ondas',0],['Mar calmo para família',1],['Tanto faz',2]]];var cidades=[['Maresias / São Sebastião','Praias de surf, natureza e badalação. O point clássico do litoral norte.',0],['Ilhabela','Ilha paradisíaca, sossego e natureza preservada.',0],['Santos','Cidade completa: serviços, mobilidade e praia urbana.',1],['Guarujá','Perto de SP, praias lindas e estrutura completa.',1],['Caraguatatuba','Melhor custo do litoral norte, mar calmo, família.',2],['Praia Grande','Preço acessível, perto de SP e mercado aquecido.',2]];var i=0,score=[0,0,0];function render(){var q=document.getElementById('quiz');if(i<perg.length){var p=perg[i];q.innerHTML='<p class="prog">Pergunta '+(i+1)+' de '+perg.length+'</p><h2>'+p[0]+'</h2>'+p.slice(1).map(function(o){return '<button onclick="pick('+o[1]+')">'+o[0]+'</button>'}).join('');}else{var best=score.indexOf(Math.max.apply(null,score));var cand=cidades.filter(function(c){return c[2]===best});var c=cand[Math.floor(Math.random()*cand.length)];q.innerHTML='<p class="res">🎉 Seu match: <strong>'+c[0]+'</strong></p><p>'+c[1]+'</p><p><a class="app" href="https://praia.digital/radar-precos/">Ver preços na cidade →</a></p><button onclick="i=0;score=[0,0,0];render()">Refazer quiz</button>';}}function pick(v){score[v]++;i++;render();}render();</script></body></html>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Praia — Encontre seu imóvel ideal no litoral | Praia Digital</title>
+<meta name="description" content="Responda 6 perguntas e descubra qual cidade do litoral paulista combina com seu perfil e orçamento.">
+<link rel="canonical" href="https://praia.digital/match-praia/">
+<style>:root{--azul:#0a2540;--mar:#0e7490;--areia:#f8f5ef}*{margin:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:var(--areia);color:#1e293b}header{background:linear-gradient(135deg,var(--azul),var(--mar));color:#fff;padding:2.5rem 1.5rem;text-align:center}.badge{display:inline-block;background:rgba(255,255,255,.15);padding:.25rem .8rem;border-radius:999px;font-size:.8rem;margin-bottom:.8rem}main{max-width:640px;margin:2rem auto;padding:0 1.25rem}.card{background:#fff;border-radius:1rem;padding:1.75rem;box-shadow:0 4px 24px rgba(10,37,64,.08);margin-bottom:1.5rem}.opt{display:block;width:100%;text-align:left;background:var(--areia);border:2px solid #e2e8f0;border-radius:.7rem;padding:1rem;margin:.5rem 0;font-size:1rem;cursor:pointer}.opt:hover{border-color:var(--mar);background:#ecfeff}.prog{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:1rem}.prog div{height:100%;background:var(--mar);transition:width .3s}.resultado{text-align:center}.cidade{font-size:2rem;font-weight:800;color:var(--azul);margin:.5rem 0}.match{display:inline-block;background:#dcfce7;color:#166534;padding:.3rem 1rem;border-radius:999px;font-weight:700}.rede{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}.rede a{background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;padding:.8rem;text-decoration:none;color:var(--azul);font-weight:600;font-size:.9rem}footer{text-align:center;padding:2rem;color:#64748b;font-size:.85rem}footer a{color:var(--mar)}</style>
+</head>
+<body>
+<header><span class="badge">🛰️ App satélite de <a href="https://praia.digital" style="color:#fff">praia.digital</a></span><h1>💘 Match Praia</h1><p>6 perguntas para descobrir sua cidade perfeita no litoral</p></header>
+<main>
+<div class="card" id="quiz"><div class="prog"><div id="bar" style="width:0%"></div></div><h3 id="q"></h3><div id="opts"></div></div>
+<div class="card resultado" id="res" style="display:none"><p>Seu match é...</p><div class="cidade" id="cid"></div><span class="match" id="pct"></span><p id="porque" style="margin-top:1rem;color:#475569"></p>
+<button class="opt" style="text-align:center;background:var(--mar);color:#fff;border:0" onclick="location.reload()">🔄 Refazer o quiz</button>
+<p style="margin-top:1rem;font-size:.9rem">Veja preços no <a href="https://praia.digital/radar-precos">Radar de Preços</a> e compare bairros no <a href="https://praia.digital/bairro-score">Bairro Score</a>.</p></div>
+<h2 style="margin:1.5rem 0 .8rem">🌐 Rede Praia Digital</h2>
+<div class="rede">
+<a href="https://praia.digital">🏠 Portal Praia Digital</a>
+<a href="https://praia.digital/plano-litoral">📋 Plano Litoral</a>
+<a href="https://praia.digital/mapa-inteligente">🗺️ Mapa Inteligente</a>
+<a href="https://praia.digital/praiascore">🏆 PraiaScore</a>
+<a href="https://praia.digital/apps">🛰️ Todos os apps</a>
+</div>
+</main>
+<footer>Feito com 🌊 pela rede <a href="https://praia.digital">Praia Digital</a> · <a href="https://github.com/praiadigital/match-praia">código aberto no GitHub</a></footer>
+<script>
+const Q=[
+['Qual seu orçamento total?',[['Até R$ 300 mil',1],['R$ 300–600 mil',2],['R$ 600 mil–1 mi',3],['Acima de R$ 1 mi',4]]],
+['O que você valoriza mais?',[['Praia paradisíaca',1],['Vida urbana e serviços',2],['Surf e natureza',3],['Exclusividade',4]]],
+['Qual o objetivo?',[['Morar',1],['Temporada + renda',2],['Investimento',3],['Fins de semana',4]]],
+['Agito ou sossego?',[['Sossego total',1],['Equilíbrio',2],['Agito moderado',3],['Máximo agito',4]]],
+['Distância de SP ideal?',[['Até 1h30',1],['Até 2h30',2],['Até 3h30',3],['Não importa',4]]],
+['Estrutura desejada?',[['Básica, pé na areia',1],['Condomínio fechado',2],['Prédio com lazer',3],['Luxo total',4]]]];
+const C={1:['Mongaguá / Itanhaém','Entrada acessível, praia tranquila e potencial de valorização de longo prazo.'],2:['Guarujá / Caraguatatuba','Melhor equilíbrio entre preço, serviços e demanda de temporada o ano todo.'],3:['Ubatuba / São Sebastião','Surf, natureza exuberante e forte apelo turístico — ótimo para renda de temporada.'],4:['Riviera de São Lourenço','O endereço premium do litoral: condomínios de luxo, segurança e valorização recorde.']};
+let i=0,pts=0;
+function show(){
+if(i>=Q.length){const k=Math.max(1,Math.min(4,Math.round(pts/Q.length)));
+quiz.style.display='none';res.style.display='block';
+cid.textContent=C[k][0];pct.textContent=`${88+Math.round(Math.random()*8)}% de match`;
+porque.textContent=C[k][1];return}
+q.textContent=Q[i][0];
+opts.innerHTML=Q[i][1].map(o=>`<button class="opt" onclick="pick(${o[1]})">${o[0]}</button>`).join('');
+bar.style.width=(i/Q.length*100)+'%';
+}
+function pick(v){pts+=v;i++;show()}
+show();
+</script>
+</body></html>
